@@ -19,7 +19,7 @@ describe('cells to json', function() {
     ]
 
     it('converts cells to json with default values', function(done) {
-        var json = helper.cellsToJson(cells)
+        var json = helper.cellsToJson(cells, undefined, "Sheet1")["Sheet1"];
         json.should.be.instanceOf.Array
         json.should.have.lengthOf(2)
         json[0].should.have.property('name', 'Forrest Gump')
@@ -28,7 +28,7 @@ describe('cells to json', function() {
     })
 
     it('converts cells to json vertically', function(done) {
-        var json = helper.cellsToJson(cells, { vertical: true })
+        var json = helper.cellsToJson(cells, { vertical: true }, "Sheet1")["Sheet1"];
         json.should.be.instanceOf.Array
         json.should.have.lengthOf(1)
         json[0].should.have.property('name', 'year')
